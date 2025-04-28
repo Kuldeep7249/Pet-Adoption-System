@@ -9,8 +9,8 @@
     "license": "ISC",
   
     "scripts": {
-    "start": "nodemon server.js",
-    "dev": "nodemon server/server.js"
+    "start": "node server.js",
+    "dev": "node server/server.js"
   },
   
 
