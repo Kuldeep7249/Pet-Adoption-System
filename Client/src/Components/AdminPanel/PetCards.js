@@ -26,7 +26,7 @@ const PetCards = (props) => {
   const handleApprove = async () => {
     setIsApproving(true);
     try {
-      const response = await fetch(`http://localhost:4000/approving/${props.pet._id}`, {
+      const response = await fetch(`${ process.env.REACT_APP_API_URL}/approving/${props.pet._id}`, {
         method: 'PUT',
         body: JSON.stringify({
           status: "Approved"
@@ -51,7 +51,7 @@ const PetCards = (props) => {
   const deleteFormsAdoptedPet = async () => {
     setIsDeleting(true)
     try {
-      const deleteResponses = await fetch(`http://localhost:4000/form/delete/many/${props.pet._id}`, {
+      const deleteResponses = await fetch(`${ process.env.REACT_APP_API_URL}/form/delete/many/${props.pet._id}`, {
         method: 'DELETE'
       });
       if (!deleteResponses.ok) {
@@ -65,7 +65,7 @@ const PetCards = (props) => {
 
   const handleReject = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/delete/${props.pet._id}`, {
+      const response = await fetch(`${ process.env.REACT_APP_API_URL}/delete/${props.pet._id}`, {
         method: 'DELETE'
       })
 
@@ -87,7 +87,7 @@ const PetCards = (props) => {
     <div className='req-containter'>
       <div className='pet-view-card'>
         <div className='pet-card-pic'>
-          <img src={`http://localhost:4000/images/${props.pet.filename}`} alt={props.pet.name} />
+          <img src={`${ process.env.REACT_APP_API_URL}/images/${props.pet.filename}`} alt={props.pet.name} />
         </div>
         <div className='pet-card-details'>
           <h2>{props.pet.name}</h2>

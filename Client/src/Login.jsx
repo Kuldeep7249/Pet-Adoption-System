@@ -11,7 +11,7 @@ const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost:4000/user/login', { email, password })
+        axios.post(`${process.env.REACT_APP_API_URL}/user/login`, { email, password })
             .then(result => {
                 console.log(result);
                 if (result.data === "Success") {

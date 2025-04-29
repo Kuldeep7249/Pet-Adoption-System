@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import Login from './Login';
+
 const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -12,7 +12,7 @@ const Register = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost:4000/user/register', { name, email, password })
+        axios.post(`${process.env.REACT_APP_API_URL}/user/register`, { name, email, password })
             .then(result => {
                 console.log(result.message);
                 if (result.data === "Already registered") {
