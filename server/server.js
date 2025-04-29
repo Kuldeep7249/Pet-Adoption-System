@@ -13,8 +13,6 @@ const AuthRoute = require('./Routes/AuthRoute');  // ✅ Import AuthRoute
 
 const app = express();
 
-// Load environment variables
-console.log("MongoDB URI:", process.env.MONGO_URI);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
